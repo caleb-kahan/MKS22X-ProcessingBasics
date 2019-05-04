@@ -3,7 +3,7 @@ color bg, fg;
 
 void setup() {
   size(800, 600);
-  levels = 1;
+  levels = 0;
 }
 
 /*Create Sierpiski's Gasket (google an image of this)
@@ -48,10 +48,11 @@ void draw() {
 }
 
 void mouseClicked() { 
+  if(levels<0) levels = 0;
   levels ++;
 }
 
 void keyPressed() {
   levels --;
-  if(levels<0) levels = 0;
+  
 }

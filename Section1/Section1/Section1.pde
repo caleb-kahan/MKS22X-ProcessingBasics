@@ -60,8 +60,8 @@ class Visualizer {
     for (int i = 0; i < values.length; i++) {
       values[i] += speeds[i]; //the speed updates the values. Do not touch this.
       //??? keep them values between max/min value so they stay in the box.
-      if(values[i]<y)values[i]=y;
-      if(values[i]>y+200)values[i]=y+200;
+      if(values[i]>100)values[i]=100;
+      if(values[i]<-100)values[i]=-100;
       //??? reverse the speeds so the bar oscillates up/down when it reaches max/min
 
       

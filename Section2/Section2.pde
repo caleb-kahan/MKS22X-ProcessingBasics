@@ -53,4 +53,5 @@ void mouseClicked() {
 
 void keyPressed() {
   levels --;
+  if(levels<0) levels = 0;
 }

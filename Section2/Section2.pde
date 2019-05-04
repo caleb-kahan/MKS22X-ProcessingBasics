@@ -29,7 +29,9 @@ void gasketH(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, 
   float v23x = (v2x+v3x)/2;
   float v23y = (v2y+v3y)/2;
   triangle(v12x, v12y, v13x, v13y, v23x, v23y);
-  gasket(levels-1, v12x, v12y, v23x, v23y, v3x, v3y);
+  gasket(levels-1, v13x, v13y, v23x, v23y, v3x, v3y);
+  gasket(levels-1, v12x, v12y, v23x, v23y, v2x, v2y);
+  gasket(levels-1, v13x, v13y, v12x, v12y, v1x, v1y);
 }
 
 

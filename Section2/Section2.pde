@@ -15,23 +15,21 @@ void setup() {
  etc.
  */
 void gasket(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, float v3y) {
-  fill(255,0,0);
-  triangle(  v1x,  v1y,  v2x,  v2y,  v3x,  v3y );
-  gasketH(levels,  v1x,  v1y,  v2x,  v2y,  v3x,  v3y );
+  fill(255, 0, 0);
+  triangle(  v1x, v1y, v2x, v2y, v3x, v3y );
+  fill(50);
+  gasketH(levels, v1x, v1y, v2x, v2y, v3x, v3y );
 }
 void gasketH(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, float v3y) {
-  if(levels<1) return;
-    float v12x = (v1x+v2x)/2;
-    float v12y = (v1y+v2y)/2;
-    float v13x = (v1x+v3x)/2;
-    float v13y = (v1y+v3y)/2;
-    float v23x = (v2x+v3x)/2;
-    float v23y = (v2y+v3y)/2;
-    fill(50);
-    triangle(v12x, v12y, v13x, v13y, v23x, v23y);
-  }
+  if (levels<1) return;
+  float v12x = (v1x+v2x)/2;
+  float v12y = (v1y+v2y)/2;
+  float v13x = (v1x+v3x)/2;
+  float v13y = (v1y+v3y)/2;
+  float v23x = (v2x+v3x)/2;
+  float v23y = (v2y+v3y)/2;
+  triangle(v12x, v12y, v13x, v13y, v23x, v23y);
   gasket(levels-1, v12x, v12y, v23x, v23y, v3x, v3y);
-  
 }
 
 

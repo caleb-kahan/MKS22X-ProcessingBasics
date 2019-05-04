@@ -42,7 +42,7 @@ class Visualizer {
     for(float i: values){
       if(i<0) {
         fill(255, 0, 0);
-        rect(xcor,y+100, increment, i);
+        rect(xcor,y+100, increment, -1*i);
       }
       else{
         fill(0, 255, 0);

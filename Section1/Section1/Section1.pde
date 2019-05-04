@@ -40,7 +40,7 @@ class Visualizer {
     float increment = 400.0/values.length;
     float xcor = x;
     for(float i: values){
-      if(x<0) {
+      if(i<0) {
         fill(255, 0, 0);
         rect(xcor,y+100, increment, i);
       }

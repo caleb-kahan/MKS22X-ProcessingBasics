@@ -46,7 +46,7 @@ class Visualizer {
       }
       else{
         fill(0, 255, 0);
-        rect(xcor,y+100+i, increment, i);
+        rect(xcor,y+100-i, increment, i);
       }
       xcor+=increment;
     }

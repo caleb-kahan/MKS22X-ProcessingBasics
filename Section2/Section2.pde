@@ -30,8 +30,8 @@ void koch(int levels, float v1x, float v1y, float v2x, float v2y){
   line(v2x,  v2y,  vm2x,  vm2y);
   float bigAngle = atan((vm2y-vm1y)/(vm2x-vm1x));
   bigAngle+=PI/3;
-  float distance = dist(v1x,v1y,v2x,v2y);
-  float vspecialy = vm1y + distance*sin(bigAngle);
+  float distance = dist(vm1x,vm1y,vm2x,vm2y);
+  float vspecialy = vm1y - distance*sin(bigAngle);
   float vspecialx = vm1x + distance*cos(bigAngle);
   line(vm1x,vm1y,vspecialx,vspecialy);
   line(vm2x,vm2y,vspecialx,vspecialy);

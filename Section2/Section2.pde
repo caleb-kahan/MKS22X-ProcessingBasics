@@ -30,8 +30,6 @@ void kochH(int levels, float v1x, float v1y, float v2x, float v2y){
   float vm2x = v1x + 2* (v2x-v1x) / 3;
   float vm1y = v1y + (v2y-v1y) / 3;
   float vm2y = v1y + 2* (v2y-v1y) / 3;
-  line(v1x,  v1y,  vm1x,  vm1y);
-  line(v2x,  v2y,  vm2x,  vm2y);
   float bigAngle = atan((vm2y-vm1y)/(vm2x-vm1x));
   bigAngle=PI/3+bigAngle;
   float distance = dist(vm1x,vm1y,vm2x,vm2y);

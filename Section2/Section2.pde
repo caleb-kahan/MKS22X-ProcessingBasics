@@ -21,7 +21,11 @@ void gasket(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, f
   gasketH(levels, v1x, v1y, v2x, v2y, v3x, v3y );
 }
 void koch(int levels, float v1x, float v1y, float v2x, float v2y){
-  if(levels<0) return;
+  line(v1x,  v1y,  v2x,  v2y);
+  kochH(levels, v1x,  v1y,  v2x,  v2y);
+}
+void kochH(int levels, float v1x, float v1y, float v2x, float v2y){
+  if(levels<1) return;
   float vm1x = v1x + (v2x-v1x) / 3;
   float vm2x = v1x + 2* (v2x-v1x) / 3;
   float vm1y = v1y + (v2y-v1y) / 3;
@@ -38,8 +42,7 @@ void koch(int levels, float v1x, float v1y, float v2x, float v2y){
   koch(levels-1,v1x,v1y,vm1x,vm1y);
   koch(levels-1,vm1x,vm1y,vspecialx,vspecialy);
   koch(levels-1,vspecialx,vspecialy,vm2x,vm2y);
-  koch(levels-1,vm2x,vm2y,v2x,v2y);
-  
+  koch(levels-1,vm2x,vm2y,v2x,v2y); 
 }
   
 void gasketH(int levels, float v1x, float v1y, float v2x, float v2y, float v3x, float v3y) {

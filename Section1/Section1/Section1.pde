@@ -43,16 +43,16 @@ class Visualizer {
     for (float i : values) {
       if (i<0) {
         float green;
-        for (i= y+100 -i, green = (i-100) * 2.55; i > y+100; i--, green -= 2.55) {
+        for (green = (i+100) * 2.55; i < 0; i++, green += 2.55) {
           stroke(255, green, 0);
-          line(xcor, i, xcor+increment, i);
+          line(xcor, y+100-i, xcor+increment, y+100-i);
         }
       }
       else {
         float red;
-        for (i= y+100-i, red = (100-i)*2.55; i < y+100; i++, red+=2.55) {
+        for (red = (100-i)*2.55; i > 0; i--, red+=2.55) {
           stroke(red, 255, 0);
-          line(xcor, i, xcor+increment, i);
+          line(xcor, y+100-i, xcor+increment, y+100-i);
         }
       }
       xcor+=increment;

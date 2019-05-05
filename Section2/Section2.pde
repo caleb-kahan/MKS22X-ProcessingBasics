@@ -32,10 +32,13 @@ void koch(int levels, float v1x, float v1y, float v2x, float v2y){
   bigAngle=PI/3+bigAngle;
   float distance = dist(vm1x,vm1y,vm2x,vm2y);
   float vspecialy = vm1y - distance*sin(bigAngle);
-  if(cos(bigAngle)>0 && distance >0 ) triangle(vm1x,vm1y,v2x,v2y,40,40);
   float vspecialx = vm1x - distance*cos(bigAngle);
   line(vm1x,vm1y,vspecialx,vspecialy);
   line(vm2x,vm2y,vspecialx,vspecialy);
+  koch(levels-1,v1x,v1y,vm1x,vm1y);
+  koch(levels-1,vm1x,vm1y,vspecialx,vspecialy);
+  koch(levels-1,vspecialx,vspecialy,vm2x,vm2y);
+  koch(levels-1,vm2x,vm2y,v2x,v2y);
   
 }
   

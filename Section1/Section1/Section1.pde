@@ -13,8 +13,8 @@ class Visualizer {
   Visualizer(float x, float y) {
     this.x = x;
     this.y = y;
-    values = new float[10];
-    speeds = new float[10];
+    values = new float[40];
+    speeds = new float[40];
     for (int i = 0; i < values.length; i++) {
       values[i] = random(-99, 99);
       speeds[i] = random(2);
@@ -39,36 +39,38 @@ class Visualizer {
     //Positive values are green and go above the line.
     float increment = 400.0/values.length;
     float xcor = x;
-    for(float i: values){
-      if(i<0) {
-        fill(255, 0, 0);
-        rect(xcor,y+100, increment, -1*i);
+
+    for (float i : values) {
+      if (i<0) {
+        float green;
+        for (i= y+100 -i, green = (i-100) * 2.55; i > y+100; i--, green -= 2.55) {
+          stroke(255, green, 0);
+          line(xcor, i, xcor+increment, i);
+        }
       }
-      else{
-        fill(0, 255, 0);
-        rect(xcor,y+100-i, increment, i);
+      else {
+        float red;
+        for (i= y+100-i, red = (100-i)*2.55; i < y+100; i++, red+=2.55) {
+          stroke(red, 255, 0);
+          line(xcor, i, xcor+increment, i);
+        }
       }
       xcor+=increment;
     }
 
 
     //Width of the visualizer is 400!
-
-  
   }
   void update() {
     for (int i = 0; i < values.length; i++) {
       values[i] += speeds[i]; //the speed updates the values. Do not touch this.
-      if(values[i]>100){
+      if (values[i]>100) {
         values[i]=100;
         speeds[i]*=-1;
-      }
-      else if(values[i]<-100){
+      } else if (values[i]<-100) {
         values[i]=-100;
         speeds[i]*=-1;
       }
-
-      
     }
   }
 }
